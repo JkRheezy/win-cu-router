@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "change": "decouple-workflow",
+  "status": "accepted",
+  "mode": "host_self_review",
+  "reviewer": "Codex authoring host; reviewed product diff and independent toolkit boundary",
+  "sourceFingerprint": "51ddfd779075a011c3f5d4bfb08b3054607af7e9921dd1553ba1bd220abdacff",
+  "acceptance": [
+    {"id": "D1", "result": "accepted", "checks": ["javascript", "python", "package"], "evidence": "The product verify command no longer reads an active-task configuration or review gate. Tests/demo run from an extracted ZIP without external host-tool configuration; its optional Hook shim returns an empty result."},
+    {"id": "D2", "result": "accepted", "checks": ["docs", "package"], "evidence": "Generic review, state and Hook helpers are in a separate local Git project at commit 68f18848d55ba239f1819d933d1baf682fef9129, excluded from the product archive. Eight independent tests pass, including CLI use with a non-Node Git fixture. Existing trusted Hook definitions remain unchanged."},
+    {"id": "D3", "result": "accepted", "checks": ["github", "docs", "release"], "evidence": "Repository CI/release/maintenance use only repository-owned commands and GitHub scripts, without importing the local toolkit. Three operational regression tests and actionlint pass. Project-specific artifact history remains versioned as recommended by the Playbook."}
+  ],
+  "findings": [
+    {"disposition": "resolved", "detail": "A fixed current task and generic review gate were coupled to npm verify. Those gates and generic tests are now external optional host tools; product checks are independently runnable."},
+    {"disposition": "resolved", "detail": "The release gate imported generic SDLC policy from product scripts. Its small repository-specific condition now lives in .github and is tested there."},
+    {"disposition": "resolved", "detail": "Junction aliases initially prevented the new external CLI from recognizing its main entry. Module identity now compares real paths while Codex project/trust paths remain unchanged; the actual alias invocation was verified."},
+    {"disposition": "accepted_limit", "detail": "Project-specific intent, plan and review records remain alongside code for traceability. The local toolkit is a separate Git workspace, not a second published product."},
+    {"disposition": "accepted_limit", "detail": "Review is host self-review, and automatic desktop Hook lifecycle events remain unverified. Remote release verification is provided by the subsequent Actions run."}
+  ]
+}

@@ -1,5 +1,5 @@
 import {execFileSync} from 'node:child_process';
-import {root,sourceFiles} from './workflow-state.mjs';
+import {root,sourceFiles} from './source-files.mjs';
 const git=args=>execFileSync('git',args,{cwd:root,encoding:'utf8'});
 const files=git(['diff','--cached','--name-only','--diff-filter=ACMR','-z']).split('\0').filter(Boolean),allowed=new Set(sourceFiles());
 for(const file of files){

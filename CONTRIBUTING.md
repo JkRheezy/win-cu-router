@@ -21,4 +21,4 @@ npm run verify
 
 文档修改应核对相对链接、命令与当前实现。若修改效果宣传，必须给出任务、尝试次数、失败/接管、计时范围和对应记录；将上游演示、维护者本机实测、推断和未来计划分开。署名不完整或用语夸大也值得单独修正。
 
-每个 PR 更新 `.github/sdlc.json` 的任务名，在 `docs/changes/<任务>/` 保存意图、验收、基线提交、允许变更范围和审查。可参考 [首个发布任务](docs/changes/sdlc-publication/intent.json)与[计划](docs/changes/sdlc-publication/plan.json)。审查完成后记录当前源码指纹，再运行完整验证。工作流细节与问题回流方式见 [WORKFLOW](docs/WORKFLOW.md)。没有独立审查者时明确记录宿主自查，不生成虚构批准。
+PR 应说明目标、验收、改动范围与实际检查结果；较复杂改动在 `docs/changes/` 保存计划和审查记录。可参考 [发布任务](docs/changes/sdlc-publication/intent.json)，但不要求安装维护者的流程工具或更新固定的当前任务文件。工作流细节与问题回流方式见 [WORKFLOW](docs/WORKFLOW.md)。没有独立审查者时明确记录宿主自查，不生成虚构批准。
