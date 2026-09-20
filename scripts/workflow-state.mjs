@@ -3,7 +3,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 export const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const entries=['package.json','.gitignore','.env.example','README.md','AGENTS.md','REVIEW.md','CONTRIBUTING.md','LICENSE','PROVENANCE.md','THIRD_PARTY_NOTICES.md','src','python','examples','docs','skills','scripts','test','.github','.githooks','.codex/config.toml','.codex/hooks.json','.codex/environments/environment.toml'];
+const entries=['package.json','.gitattributes','.gitignore','.env.example','README.md','AGENTS.md','REVIEW.md','CONTRIBUTING.md','LICENSE','PROVENANCE.md','THIRD_PARTY_NOTICES.md','src','python','examples','docs','skills','scripts','test','.github','.githooks','.codex/config.toml','.codex/hooks.json','.codex/environments/environment.toml'];
 export function sourceFiles(){
   const files=[];
   function walk(p){const abs=path.join(root,p);if(!fs.existsSync(abs))return;const stat=fs.lstatSync(abs);if(stat.isSymbolicLink())throw Error('Source symlink unsupported');if(stat.isDirectory()){for(const name of fs.readdirSync(abs))if(!['__pycache__','node_modules','.venv','.local','.git'].includes(name))walk(path.join(p,name));}else files.push(p.replaceAll('\\','/'));}
