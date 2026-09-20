@@ -1,6 +1,6 @@
 # 参与与纠错
 
-优先欢迎可复现的任务、观察缺失/引用失效案例、适配改进和来源归属修正。当前尚未发布远程仓库，因此本文不提供虚构的 issue 地址。
+优先欢迎可复现的任务、观察缺失/引用失效案例、适配改进和来源归属修正。请使用 [GitHub Issues](https://github.com/JkRheezy/win-cu-router/issues) 的任务模板。
 
 ## 报告问题
 
@@ -15,9 +15,10 @@
 需要验证代码时运行：
 
 ```powershell
-npm test
-.\.venv\Scripts\python.exe -m unittest discover -s python -p "test_*.py"
-npm run check:release
+npm run setup:local
+npm run verify
 ```
 
 文档修改应核对相对链接、命令与当前实现。若修改效果宣传，必须给出任务、尝试次数、失败/接管、计时范围和对应记录；将上游演示、维护者本机实测、推断和未来计划分开。署名不完整或用语夸大也值得单独修正。
+
+每个 PR 更新 `.github/sdlc.json` 的任务名，在 `docs/changes/<任务>/` 保存意图、验收、基线提交、允许变更范围和审查。可参考 [首个发布任务](docs/changes/sdlc-publication/intent.json)与[计划](docs/changes/sdlc-publication/plan.json)。审查完成后记录当前源码指纹，再运行完整验证。工作流细节与问题回流方式见 [WORKFLOW](docs/WORKFLOW.md)。没有独立审查者时明确记录宿主自查，不生成虚构批准。

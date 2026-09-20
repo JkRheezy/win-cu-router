@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "sdlc-publication",
+  "title": "Close the artifact-driven development and release loop",
+  "goal": "Publish win-cu-router through a verified, reviewable workflow and route operational failures back into actionable issues.",
+  "authorization": {
+    "source": "explicit_user_request",
+    "request": "闭环然后按流程把项目推上去",
+    "scope": "Create the public project repository, publish reviewed source through PR and CI, merge passing changes, publish an alpha release, and verify the feedback path. No paid model API is required by the workflow."
+  },
+  "acceptance": [
+    {"id": "A1", "requirement": "Plan, acceptance criteria and review are machine-linked to the source being shipped."},
+    {"id": "A2", "requirement": "Missing or stale review, missing acceptance evidence and unexpected changes fail the gate."},
+    {"id": "A3", "requirement": "The public archive is scanned and smoke-tested independently from the working checkout."},
+    {"id": "A4", "requirement": "Release publication requires a passing verification run for the current main commit."},
+    {"id": "A5", "requirement": "CI or release failure produces a deduplicated maintenance issue and an intake artifact for the next development pass."}
+  ],
+  "nonGoals": ["Claiming universal CU reliability", "Redistributing vendor binaries or secrets", "Running an unattended model that changes public code without review", "Claiming independent human review where the authoring host performed the review"]
+}

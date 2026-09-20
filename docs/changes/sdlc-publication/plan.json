@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "baseCommit": "9552a4f",
+  "allowedPaths": ["scripts/", "test/", ".github/", "docs/", "package.json", "README.md", "AGENTS.md", "REVIEW.md", "CONTRIBUTING.md", "PROVENANCE.md", "THIRD_PARTY_NOTICES.md"],
+  "steps": [
+    "Add an acceptance/review gate bound to normalized source bytes and explicit evidence checks.",
+    "Smoke-test a source archive in an isolated temporary directory.",
+    "Use GitHub verification as the required check before publication.",
+    "Publish a versioned alpha release and verify its downloaded archive.",
+    "Turn workflow failures and user reports into structured intake artifacts, with deduplication.",
+    "Exercise a real PR, CI, release and feedback round trip, then record the actual remote URLs and remaining limits."
+  ],
+  "reviewMode": "authoring_host_self_review_with_machine_gates",
+  "validation": ["javascript", "python", "docs", "release", "package", "sdlc"]
+}
