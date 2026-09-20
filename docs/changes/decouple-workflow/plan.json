@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "baseCommit": "20c038af7a20426320fbcbb35823c85c7ba19508",
+  "allowedPaths": ["scripts/", "test/", ".github/", "package.json", "docs/", "README.md", "AGENTS.md", "REVIEW.md", "CONTRIBUTING.md", "PROVENANCE.md"],
+  "steps": ["Extract generic host tools to an independent local Git workspace", "Remove active-task coupling from product commands and source archives", "Retain project intent/plan/review records and ordinary GitHub CI/release/maintenance", "Verify product and optional toolkit separately, review, merge and publish"],
+  "validation": ["javascript", "python", "github", "docs", "release", "package"]
+}

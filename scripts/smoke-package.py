@@ -44,6 +44,11 @@ with tempfile.TemporaryDirectory(prefix='source-', dir=work) as temp:
         raise RuntimeError('Archive contains files outside the public allowlist')
     run(['node', 'examples/offline.mjs'], extracted)
     run(['node', '--test', *[str(p.relative_to(extracted)) for p in sorted((extracted / 'test').glob('*.test.mjs'))]], extracted)
+    run(['node', '--test', '.github/tests/workflows.test.mjs'], extracted)
+    # The distributed project has no private toolkit configuration; Hooks are optional.
+    result = subprocess.run(['node', 'scripts/codex-hook.mjs'], cwd=extracted, input='{}', text=True, capture_output=True, check=True, timeout=10)
+    if json.loads(result.stdout) != {}:
+        raise RuntimeError('Unconfigured source archive unexpectedly activated a maintainer Hook')
     run([sys.executable, '-m', 'unittest', 'discover', '-s', 'python', '-p', 'test_*.py'], extracted)
     run(['node', 'scripts/check-docs.mjs'], extracted)
     print(json.dumps({'passed': True, 'files': len(names), 'sha256': hashlib.sha256(archive.read_bytes()).hexdigest()}))

@@ -40,7 +40,7 @@
 
 上述代码由维护者借助 AI 编写。研发中阅读过上游代码和文档，不能称为严格的 clean-room 实现，也不能把“本仓库编写”扩张成“这些设计首次出现”。当前源码包未包含上游项目源码文件或供应商二进制；这一发布清单说明不等于形式化代码相似性审计或不侵权保证。
 
-开发工作流另外参考 [Anthropic 的 AI-Native SDLC Playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)，把阶段产物与维护反馈的思路改编为本项目的意图/计划/审查 JSON、验证脚本和 GitHub Actions。这里新增的是小型项目的具体连接代码；生命周期方法、GitHub CI/Issue/Release 能力及 Codex Hooks 由各自来源提供，没有 Anthropic 联名或官方集成。Actions 使用的 checkout、setup-node、setup-python、github-script、upload-artifact 来自 GitHub 的 actions 组织，运行时另行获取，不打包其源码。
+开发工作流另外参考 [Anthropic 的 AI-Native SDLC Playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)，采用阶段产物与维护反馈思路。通用宿主检查和 Hook 工具已提到独立本机目录；本仓库保留自己的计划、审查与证据、可选接入配置和 GitHub 运维。生命周期方法、GitHub CI/Issue/Release 能力及 Codex Hooks 由各自来源提供，没有 Anthropic 联名或官方集成。Actions 使用的 checkout、setup-node、setup-python、github-script、upload-artifact 来自 GitHub 的 actions 组织，运行时另行获取，不打包其源码。
 
 ## 如何维护这份记录
 

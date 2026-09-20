@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "id": "decouple-workflow",
+  "goal": "Keep the product independent from the maintainer's generic SDLC tools while preserving a traceable development and release loop.",
+  "source": "User: 流程不要和项目耦合，除非范式要求这么做",
+  "acceptance": [
+    {"id": "D1", "requirement": "Product tests and verification run without an active task or external workflow toolkit."},
+    {"id": "D2", "requirement": "Reusable host review and Hook tools live outside the product and accept the project as input."},
+    {"id": "D3", "requirement": "Project CI, release and maintenance remain independently operable with project-specific records preserved."}
+  ],
+  "nonGoals": ["Rewriting published Git history", "Changing CU behavior", "Publishing a second framework repository without a request"]
+}

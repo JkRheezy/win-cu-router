@@ -1,9 +1,14 @@
 const fs = require('node:fs');
-const path = require('node:path');
-const {pathToFileURL} = require('node:url');
+
+function releaseProblems({branch, head, requestedVersion, packageVersion, runs}) {
+  const problems = [];
+  if (branch !== 'main') problems.push('Release must run on main');
+  if (requestedVersion !== 'v' + packageVersion || !/^v\d+\.\d+\.\d+(?:-[a-z0-9.]+)?$/.test(requestedVersion)) problems.push('Version must match package.json');
+  if (!runs.some(r => r.head_sha === head && r.head_branch === 'main' && r.event === 'push' && r.conclusion === 'success')) problems.push('No successful main push verification for this exact commit');
+  return problems;
+}
 
 module.exports = async ({github, context}) => {
-  const {releaseProblems} = await import(pathToFileURL(path.resolve('scripts/sdlc-policy.mjs')).href);
   const {owner, repo} = context.repo;
   const head = (await github.rest.git.getRef({owner, repo, ref: 'heads/main'})).data.object.sha;
   if (head !== context.sha) throw Error('main moved; verify and release its new commit');
@@ -18,3 +23,4 @@ module.exports = async ({github, context}) => {
   });
   if (problems.length) throw Error(problems.join('\n'));
 };
+module.exports.releaseProblems = releaseProblems;

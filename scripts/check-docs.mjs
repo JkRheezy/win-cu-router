@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import {root,sourceFiles} from './workflow-state.mjs';
+import {root,sourceFiles} from './source-files.mjs';
 const errors=[];
 for(const file of sourceFiles().filter(f=>f.endsWith('.md'))){
   const body=fs.readFileSync(path.join(root,file),'utf8').replace(/```[^\n]*\n[\s\S]*?```/g,'');

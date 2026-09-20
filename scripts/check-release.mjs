@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import {root,sourceFiles} from './workflow-state.mjs';
+import {root,sourceFiles} from './source-files.mjs';
 const files=sourceFiles();
 const problems=[];
 for(const file of files){
