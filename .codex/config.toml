@@ -1,0 +1,3 @@
+# Project-local workflow feature. Models and permission profiles are inherited.
+[features]
+hooks = true

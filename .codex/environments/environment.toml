@@ -1,0 +1,20 @@
+version = 1
+name = "win-cu-router"
+
+[setup]
+script = "node scripts/setup-local.mjs"
+
+[[actions]]
+name = "Verify"
+icon = "test"
+command = "npm run verify"
+
+[[actions]]
+name = "Offline demo"
+icon = "run"
+command = "npm run demo"
+
+[[actions]]
+name = "Check docs"
+icon = "test"
+command = "npm run verify:docs"

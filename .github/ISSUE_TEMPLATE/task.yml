@@ -1,0 +1,22 @@
+name: Task or reproducible issue
+description: Capture intent, acceptance and evidence before implementation.
+body:
+  - type: textarea
+    id: intent
+    attributes:
+      label: Goal or observed problem
+      description: State the desired outcome and concrete reproduction.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance and scope
+      description: What proves completion, and which apps or actions are in scope?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Versions, evidence and upstream references
+      description: Include sanitized results, failures and sources; omit keys and private logs.

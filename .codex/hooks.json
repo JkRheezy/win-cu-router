@@ -1,0 +1,31 @@
+{
+  "description": "Project-only context and bounded verification feedback; no network, API calls, publishing or permission changes.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node -e \"const p=require('node:path');const c=require('node:child_process');const u=require('node:url');import(u.pathToFileURL(p.join(c.execFileSync('git',['rev-parse','--show-toplevel'],{encoding:'utf8'}).trim(),'scripts','codex-hook.mjs')).href)\"",
+            "timeout": 15,
+            "additionalContextLimit": 500,
+            "statusMessage": "Load project workflow"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node -e \"const p=require('node:path');const c=require('node:child_process');const u=require('node:url');import(u.pathToFileURL(p.join(c.execFileSync('git',['rev-parse','--show-toplevel'],{encoding:'utf8'}).trim(),'scripts','codex-hook.mjs')).href)\"",
+            "timeout": 15,
+            "statusMessage": "Check current verification"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,250 @@
+{
+  "schemaVersion": 1,
+  "recordedDate": "2026-09-21",
+  "evidenceLevel": "Maintainer local observations, sanitized excerpts; not independent reproduction.",
+  "limitations": [
+    "Single machine and selected examples.",
+    "Raw sources remain private and are not in this archive.",
+    "Hashes identify private source bytes; they do not independently prove the outcomes.",
+    "Historical samples are not bound to an immutable project commit.",
+    "Different tasks and timing boundaries must not be compared as a speedup ratio."
+  ],
+  "records": [
+    {
+      "id": "E01",
+      "sourceFile": "live-official.json",
+      "sourceSha256": "a69f1186988ad36525022e71cc562ea0ccb6a653bce9ec2e6be53944d0649d53",
+      "excerpt": {
+        "status": "done",
+        "verified": true,
+        "stats": {
+          "decisions": 4,
+          "actions": 4,
+          "handoffs": 0,
+          "reads": 9
+        },
+        "elapsedMs": 3615
+      }
+    },
+    {
+      "id": "E02",
+      "sourceFile": "calc-unified-result.json",
+      "sourceSha256": "a95ef9b07050ee27b1adc5c4d22645f6b423d5835de06b634cb48bea46743285",
+      "excerpt": {
+        "status": "done",
+        "verified": true,
+        "stats": {
+          "decisions": 5,
+          "actions": 5,
+          "handoffs": 0,
+          "reads": 11
+        },
+        "elapsedMs": 11762
+      }
+    },
+    {
+      "id": "E03",
+      "sourceFile": "browser-input-result.json",
+      "sourceSha256": "a2db31b81360baaf7593ece7eeea7fc4c8c5c3a3d5caecaf0d4d60ee66aee8e2",
+      "excerpt": {
+        "status": "done",
+        "verified": true,
+        "stats": {
+          "decisions": 2,
+          "actions": 1,
+          "handoffs": 0,
+          "reads": 4
+        },
+        "elapsedMs": 3168
+      }
+    },
+    {
+      "id": "E04",
+      "sourceFile": "browser-host-navigation.json",
+      "sourceSha256": "19da7f2e85d5e1fa94133434ec9749fc9af956d600deeb48a7a48809916af0a6",
+      "excerpt": {
+        "planner": "Codex host after recorded Jev handoff",
+        "elapsedMs": 2092,
+        "url": "https://www.python.org/success-stories/",
+        "title": "Our Success Stories | Python.org",
+        "verified": true
+      }
+    },
+    {
+      "id": "E05",
+      "sourceFile": "browser-unified-navigation-result.json",
+      "sourceSha256": "2e40bc15df16f16893c6b31e8d0123e41601d40b0c151e77230a4d78813a7d68",
+      "excerpt": {
+        "status": "handoff",
+        "stats": {
+          "decisions": 1,
+          "actions": 0,
+          "handoffs": 1,
+          "reads": 1
+        },
+        "elapsedMs": 770,
+        "decisions": [
+          {
+            "route": "delegate",
+            "reason": "uncertain_decision",
+            "confidence": 0.63,
+            "latencyMs": 552,
+            "model": "jev-1.13.0"
+          }
+        ]
+      }
+    },
+    {
+      "id": "E06",
+      "sourceFile": "observer-validation.json",
+      "sourceSha256": "423c7c5b7a6d6a12669b9d7b57e725a89080eab8a9549dec527c35badfd69b51",
+      "excerpt": [
+        {
+          "label": "calculator",
+          "ok": true,
+          "elapsedMs": 168,
+          "driverMs": 158,
+          "images": 0,
+          "elements": 80
+        },
+        {
+          "label": "window-screenshot",
+          "ok": true,
+          "elapsedMs": 526,
+          "driverMs": 515,
+          "images": 1
+        },
+        {
+          "label": "zoom",
+          "ok": true,
+          "elapsedMs": 297,
+          "driverMs": 291,
+          "images": 1
+        },
+        {
+          "label": "verify",
+          "ok": true,
+          "elapsedMs": 218,
+          "driverMs": 207,
+          "images": 0
+        },
+        {
+          "label": "notepad",
+          "ok": true,
+          "elapsedMs": 151,
+          "driverMs": 144,
+          "images": 0,
+          "elements": 36,
+          "expectedText": true
+        },
+        {
+          "label": "browser",
+          "ok": true,
+          "elapsedMs": 242,
+          "driverMs": 231,
+          "images": 1,
+          "refs": 171,
+          "complete": false
+        },
+        {
+          "label": "browser-continuation",
+          "ok": true,
+          "elapsedMs": 20,
+          "driverMs": 8,
+          "images": 0
+        },
+        {
+          "label": "browser-query",
+          "ok": true,
+          "elapsedMs": 161,
+          "driverMs": 155,
+          "images": 0,
+          "refs": 2
+        },
+        {
+          "label": "dialog-inspect",
+          "ok": true,
+          "elapsedMs": 65,
+          "driverMs": 59,
+          "images": 0
+        },
+        {
+          "label": "screen-metadata",
+          "ok": true,
+          "elapsedMs": 10,
+          "driverMs": 6,
+          "images": 0
+        },
+        {
+          "label": "health",
+          "ok": true,
+          "elapsedMs": 21,
+          "driverMs": 16,
+          "images": 0
+        },
+        {
+          "label": "deny-get_desktop_state",
+          "blocked": true
+        },
+        {
+          "label": "deny-clipboard_read",
+          "blocked": true
+        },
+        {
+          "label": "deny-get_window_state",
+          "blocked": true
+        },
+        {
+          "label": "deny-browser_dialog",
+          "blocked": true
+        }
+      ]
+    },
+    {
+      "id": "E07",
+      "sourceFile": "session-recovery-result.json",
+      "sourceSha256": "198c2bace236b936be1c4a099160b82cf865208510f1f9bc20bcfc3b91de1acf",
+      "excerpt": {
+        "before": true,
+        "afterEnd": false,
+        "gapCodes": [
+          "driver_refused",
+          "session_restart_required"
+        ],
+        "restart": {
+          "restarted": true,
+          "epoch": 3,
+          "requiresRebind": true
+        },
+        "afterRestart": true,
+        "elements": 80
+      }
+    },
+    {
+      "id": "E08",
+      "sourceFile": "session-keepalive-result.json",
+      "sourceSha256": "1b37629c6b1274abd7adb8351376c3e62e61d454831397a64ac2b2da53748d4d",
+      "excerpt": {
+        "before": {
+          "state": "active",
+          "idle_seconds": 2,
+          "expires_in_seconds": 297
+        },
+        "after": {
+          "state": "active",
+          "idle_seconds": 0,
+          "expires_in_seconds": 299
+        }
+      }
+    },
+    {
+      "id": "E09",
+      "sourceFile": "browser-recovery-refusal.json",
+      "sourceSha256": "0bd6876058d36f60ce72e1a5d22c3e9b236192a3d5c1f7f5078a3e99df4af4b3",
+      "excerpt": {
+        "ok": false,
+        "refusalCode": "browser_binding_stale"
+      }
+    }
+  ]
+}

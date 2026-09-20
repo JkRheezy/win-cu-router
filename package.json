@@ -1,0 +1,19 @@
+{
+  "name": "win-cu-router",
+  "version": "0.1.0-alpha.2",
+  "private": true,
+  "description": "Experimental Windows desktop orchestration with Jev-first routing and interchangeable execution adapters.",
+  "type": "module",
+  "license": "MIT",
+  "engines": { "node": ">=20.6" },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "demo": "node examples/offline.mjs",
+    "check:release": "node scripts/check-release.mjs",
+    "check:docs": "node scripts/check-docs.mjs",
+    "verify": "node scripts/verify.mjs",
+    "verify:docs": "node scripts/verify.mjs --docs",
+    "setup:local": "node scripts/setup-local.mjs"
+  },
+  "files": ["src", "python", "examples", "docs", "skills", "scripts", "test", "README.md", "AGENTS.md", "REVIEW.md", "CONTRIBUTING.md", "LICENSE", "THIRD_PARTY_NOTICES.md", "PROVENANCE.md", ".env.example", ".codex/config.toml", ".codex/hooks.json", ".codex/environments/environment.toml", ".githooks", ".github"]
+}
