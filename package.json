@@ -11,6 +11,7 @@
     "demo": "node examples/offline.mjs",
     "check:release": "node scripts/check-release.mjs",
     "check:docs": "node scripts/check-docs.mjs",
+    "check:hooks": "node scripts/check-hooks.mjs",
     "verify": "node scripts/verify.mjs",
     "verify:docs": "node scripts/verify.mjs --docs",
     "setup:local": "node scripts/setup-local.mjs"

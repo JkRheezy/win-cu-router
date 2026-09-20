@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-20T19:11:02.694Z",
+  "scope": "project path as registered by user; absolute machine paths omitted",
+  "loaded": 2,
+  "ready": true,
+  "hooks": [
+    {
+      "event": "sessionStart",
+      "enabled": true,
+      "trust": "trusted",
+      "definitionHash": "sha256:5ad550dd561bcc4d99be1a62a7e22098d914db4c442dedbb6f7a0e605ab2a51f"
+    },
+    {
+      "event": "stop",
+      "enabled": true,
+      "trust": "trusted",
+      "definitionHash": "sha256:1f1264a9ada725880cbbdc801bcdf7dbd1876a1a93d9dbab2d0a69afc84a390e"
+    }
+  ],
+  "warnings": [],
+  "errors": [],
+  "pathAliasFinding": "Registered path trusted; resolving its Windows Junction before querying yielded untrusted for the alias. No trust records were modified.",
+  "automaticTriggerProbe": {
+    "resumed": false,
+    "result": "existing_thread_has_active_writer",
+    "modelTurnStarted": false,
+    "hookEventCount": 0
+  },
+  "automaticExecution": "not_verified",
+  "historicalWorkflowEvidence": "workflow-validation-2026-09-21.json"
+}

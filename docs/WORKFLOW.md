@@ -32,6 +32,7 @@ Codex 官方说明：[Hooks](https://learn.chatgpt.com/docs/hooks)、[本地环�
 npm run setup:local   # 安装开发依赖，不装 driver、不复制 key、不启动桌面操作
 npm run verify        # JavaScript + Python + 文档链接/证据索引 + 源码发布扫描
 npm run verify:docs   # 纯文档改动；不能为未验证的代码补发通过证明
+npm run check:hooks   # 只读检查当前项目的 Hook 加载、启用与信任状态
 ```
 
 验证脚本记录源码指纹、执行前后是否变化、各检查退出码、时间以及是否覆盖代码测试，保存在 `.local/workflow/verification.json`。修改源码后，旧指纹不再对应新状态。原始命令输出保存在同目录，不自动公开。
@@ -45,6 +46,10 @@ Hooks 不逐个工具调用重跑整套测试，不发模型请求，不安装�
 在项目根目录使用 Codex，项目级配置才会进入相应加载范围。新的 hook 定义需要用户审阅并信任，Codex 才会执行；修改定义后可能需要重新审阅。这是平台的 [hook 信任机制](https://learn.chatgpt.com/docs/hooks#review-and-trust-hooks)，不是本项目另加的审批流程。
 
 本项目只写配置和测试脚本，不编辑 Codex 的信任记录。用户可在截图中的“钩子”入口检查两个事件，或在项目里的 Codex CLI 使用 `/hooks`。信任前，手动 `npm run verify` 与 Git 提交检查仍可使用。当前任务如果从项目外的工作目录启动，也不能据此声称项目 hook 已自动触发。
+
+2026-09-21 后续核验：用户已在应用中信任两个定义，按应用保存的项目路径查询，`SessionStart`、`Stop` 均为 enabled/trusted，加载错误为空。新的[启用证据](evidence/hooks-activation-2026-09-21.json)补充此前“尚未启用”的历史记录；状态查询证明执行条件满足，不等于自动触发过。
+
+Windows Junction 或其他目录别名需要保留应用添加项目时的路径。本机将该路径转换成实际目录后，同一批定义的信任状态发生变化。检查时不要先 realpath/resolve 磁盘链接，也不要自动复制另一条路径的信任记录。可以明确指定：`npm run check:hooks -- --cwd <应用添加项目时的路径>`。该命令不发起模型回合、不运行 Hooks、不改变信任。
 
 ## GitHub 与发布
 
@@ -60,4 +65,4 @@ Hooks 不逐个工具调用重跑整套测试，不发模型请求，不安装�
 
 本次具体配置和验收记录见 [docs-workflow 任务记录](changes/2026-09-21-docs-workflow.md)。
 
-当前已建立本地提交基线并完成隔离 worktree 验证；Git 钩子已在本仓库启用。Codex 项目信任与 Hook 审阅、应用内环境选择，以及远程仓库/CI 启用仍与本地检查分开记录，不隐式修改这些状态。
+当前已建立本地提交基线并完成隔离 worktree 验证；Git 钩子已在本仓库启用，Codex 两项 Hooks 已在用户配置的项目路径下受信任。应用内环境选择、自动事件触发实录和远程 CI 启用仍分别记录，不从已信任推断这些步骤已完成。
