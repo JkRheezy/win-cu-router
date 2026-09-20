@@ -27,7 +27,16 @@ async function upsertFailure({github, context, run}) {
   // workflow-level concurrency serializes this scan/create operation.
   const issues = await github.paginate(github.rest.issues.listForRepo, {owner, repo, state: 'all', labels: 'maintenance', per_page: 100});
   const existing = issues.find(issue => !issue.pull_request && issue.body?.includes(draft.marker));
-  if (existing) return existing;
+  if (existing) {
+    const latest = `<!-- latest-attempt -->\n${run.url}\n<!-- /latest-attempt -->`;
+    const pattern = /<!-- latest-attempt -->[\s\S]*?<!-- \/latest-attempt -->/g;
+    const body = pattern.test(existing.body)
+      ? existing.body.replace(pattern, () => latest)
+      : existing.body + '\n\n' + latest;
+    const reopen = existing.state === 'closed' && !run.drill;
+    if (body === existing.body && !reopen) return existing;
+    return (await github.rest.issues.update({owner, repo, issue_number: existing.number, body, ...(reopen ? {state: 'open'} : {})})).data;
+  }
   return (await github.rest.issues.create({owner, repo, title: draft.title, body: draft.body, labels: ['maintenance']})).data;
 }
 

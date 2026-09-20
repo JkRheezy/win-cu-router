@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "maintenance-roundtrip",
+  "title": "Keep deduplicated maintenance feedback actionable",
+  "goal": "Use the real maintenance intake to fix missing later-attempt evidence and complete the feedback-to-PR loop.",
+  "source": {
+    "issue": "https://github.com/JkRheezy/win-cu-router/issues/2",
+    "intakeRun": "https://github.com/JkRheezy/win-cu-router/actions/runs/35533174267",
+    "duplicateRun": "https://github.com/JkRheezy/win-cu-router/actions/runs/35533225530"
+  },
+  "acceptance": [
+    {"id": "M1", "requirement": "Repeated attempts reuse one issue and preserve a link to the latest run."},
+    {"id": "M2", "requirement": "A fresh real failure reopens an already closed matching issue; a diagnostic drill does not reopen a closed issue."},
+    {"id": "M3", "requirement": "The public evidence distinguishes real remote results, diagnostic drills and unverified desktop Hook events."}
+  ],
+  "nonGoals": ["Changing CU behavior", "Claiming a production incident from a workflow drill", "Adding an autonomous code-writing model"]
+}
