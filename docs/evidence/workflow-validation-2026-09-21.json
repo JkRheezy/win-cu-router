@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-21",
+  "evidenceLevel": "Maintainer local verification, not independent audit or hosted CI.",
+  "isolatedWorktree": {
+    "commit": "fadc5550e823fd0a6de58990423adc775f8c7352",
+    "freshVenvSetup": "passed",
+    "unitTests": {
+      "javascript": 16,
+      "python": 7
+    },
+    "verification": {
+      "schemaVersion": 1,
+      "recordedAt": "2026-09-20T18:40:26.223Z",
+      "profile": "full",
+      "fingerprint": "ee9deea50bc1bc117dfb9547233b40eecec628e51c258f5f94ffbe89e1c0f77b",
+      "codeFingerprint": "39b5403b1a44e72ab91c36d97270b6c92fcbcc5fbee69ae3ec24cae0dae39f54",
+      "fullCodeVerified": true,
+      "unchangedDuringRun": true,
+      "checks": [
+        {
+          "name": "javascript",
+          "exitCode": 0,
+          "elapsedMs": 301
+        },
+        {
+          "name": "python",
+          "exitCode": 0,
+          "elapsedMs": 2590
+        },
+        {
+          "name": "docs",
+          "exitCode": 0,
+          "elapsedMs": 114
+        },
+        {
+          "name": "release",
+          "exitCode": 0,
+          "elapsedMs": 111
+        }
+      ],
+      "passed": true
+    }
+  },
+  "hookManualScenarios": [
+    {
+      "check": "configured command resolves git root from a subdirectory",
+      "passed": true
+    },
+    {
+      "check": "unchanged turn needs no additional check",
+      "passed": true
+    },
+    {
+      "check": "fresh passing verification permits completion",
+      "passed": true
+    },
+    {
+      "check": "changed unverified source requests one continuation",
+      "passed": true
+    },
+    {
+      "check": "continued stop does not loop indefinitely",
+      "passed": true
+    },
+    {
+      "check": "explicit stop is respected",
+      "passed": true
+    }
+  ],
+  "stagedFileCheck": {
+    "privateFixtureRejected": true,
+    "realIndexModified": false
+  },
+  "codexHostState": {
+    "projectHooksLoaded": 0,
+    "projectTrust": "not_enabled_in_probe",
+    "automaticHookExecution": "not_verified",
+    "environmentTomlSyntax": "passed",
+    "environmentCommands": "passed",
+    "appEnvironmentSelection": "not_verified"
+  },
+  "github": {
+    "connectorRead": "verified",
+    "remoteRepositoryConfigured": false,
+    "hostedCI": "not_run",
+    "automaticMergeOrPublish": false
+  }
+}

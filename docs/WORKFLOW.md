@@ -59,3 +59,5 @@ Hooks 不逐个工具调用重跑整套测试，不发模型请求，不安装�
 取消本项目 Git 钩子可运行 `git config --local --unset core.hooksPath`。项目生命周期 Hooks 可在 Codex 的 hook 管理界面停用；移除环境文件不会删除源码或用户数据。不要更改全局权限以让本项目流程通过。
 
 本次具体配置和验收记录见 [docs-workflow 任务记录](changes/2026-09-21-docs-workflow.md)。
+
+当前已建立本地提交基线并完成隔离 worktree 验证；Git 钩子已在本仓库启用。Codex 项目信任与 Hook 审阅、应用内环境选择，以及远程仓库/CI 启用仍与本地检查分开记录，不隐式修改这些状态。
