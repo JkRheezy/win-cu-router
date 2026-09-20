@@ -14,6 +14,7 @@ binary distribution is included in the repository archive.
 | [Browser Use / Jev Ultrafast](https://github.com/browser-use/jev-ultrafast) | Design inspiration and a separately installed earlier evaluation project. Its dynamic browser policy, text-generation features and benchmark results are not this project's achievements. |
 | [Browser Harness](https://github.com/browser-use/browser-harness) | Used indirectly by the earlier Ultrafast evaluation. Not a dependency of the current trycua browser path. |
 | [Anthropic / AI-Native SDLC Playbook](https://claude.com/blog/the-ai-native-sdlc-playbook) | Workflow design reference, adapted for this repository and Codex. No Anthropic integration, endorsement or copied playbook content is bundled. |
+| [GitHub Actions](https://github.com/actions) | Hosted CI and separately fetched checkout, setup-node, setup-python, github-script and upload-artifact actions, pinned to upstream commits in workflow files. Those actions retain their own licenses and are not bundled. |
 
 Node.js and Python are user-installed runtimes governed by their respective
 licenses. They are not bundled. Product names identify compatibility and

@@ -4,7 +4,7 @@
 
 本项目站在现有项目与平台能力之上：[Jev-cu](https://github.com/Sac-Y/Jev-cu) 提供了直接的设计启发，[Jev Ultrafast](https://github.com/browser-use/jev-ultrafast) 启发了结构化网页决策与执行后核验；当前观察和部分执行依靠 [trycua](https://github.com/trycua/cua)，模型能力来自 TypeSafe Jev，可选的官方执行能力来自用户已有的 Codex Computer Use 插件。**本项目的工作是适配与编排，不是发明这些模型、观察技术或执行引擎。**
 
-状态：`0.1.0-alpha.2` · Windows 本机实验 · 已准备源码，尚未发布 GitHub 仓库。项目没有上述供应方的官方合作或背书。
+状态：`0.1.0-alpha.3` · Windows 本机实验 · [GitHub 源码](https://github.com/JkRheezy/win-cu-router) · [CI](https://github.com/JkRheezy/win-cu-router/actions/workflows/test.yml) · [版本发布](https://github.com/JkRheezy/win-cu-router/releases)。项目没有上述供应方的官方合作或背书。
 
 [背景与取舍](docs/BACKGROUND.md) · [观察接口](docs/OBSERVATION.md) · [宿主接入](docs/HOST.md) · [实测与证据](docs/VALIDATION.md) · [贡献与来源](PROVENANCE.md) · [开发工作流](docs/WORKFLOW.md)
 
@@ -100,11 +100,9 @@ Jev 不接收本项目的原始截图。图像保留给支持视觉的宿主，�
 | alpha.2：网页搜索框填入 `asyncio`，不提交 | Jev 自主完成；1 次输入并核验，3.168 秒 | E03 |
 | alpha.2：打开 Python Success Stories | Jev 请求接管；宿主完成，后续执行与核验片段 2.092 秒 | E04、E05 |
 
-19 项离线测试曾通过；它们检查本项目协议与保护逻辑，不代表 19 个真实办公任务通过。可公开核对的[脱敏记录](docs/evidence/local-validation-2026-09-21.json)、失败样本、计时口径与复现入口见[验证文档](docs/VALIDATION.md)。
+离线测试检查协议、范围、引用时效和开发流程，不代表同等数量的真实办公任务通过。可公开核对的[脱敏记录](docs/evidence/local-validation-2026-09-21.json)、失败样本、计时口径与复现入口见[验证文档](docs/VALIDATION.md)。历史的 19、23、26 项记录分别对应当时的版本；当前测试数量和结果以 CI 为准。
 
-后续文档与工作流变更增加了验证时效与停止行为检查，当前本机及隔离 worktree 共通过 23 项离线测试。项目 Hooks、Git 检查、环境命令和 CI 文件的不同启用状态见[工作流验收](docs/changes/2026-09-21-docs-workflow.md)，不将手工测试称为已在 Codex 或 GitHub 自动运行。
-
-Hooks 启用核验进一步补充了路径别名与信任状态检查，当前本机通过 26 项离线测试。用户配置的项目路径下两项 Hooks 已启用并受信任；可运行 `npm run check:hooks` 只读检查。[核验记录](docs/changes/2026-09-21-hooks-activation.md)
+开发流程参考 Anthropic 的 SDLC Playbook：意图和验收 → 计划 → 实现与源码审查 → CI → 版本发布 → 问题回流。验收和审查记录与源码指纹绑定，发布包独立解压复验；CI 或发布失败转为去重的问题单。[工作流说明](docs/WORKFLOW.md)区分自动检查、宿主自查与真实 CU 验收，不把测试当成独立审查。Codex 两项 Hooks 已由用户信任；自动事件触发仍需另行留证，[状态记录](docs/changes/2026-09-21-hooks-activation.md)不替代云端 CI。
 
 ## 已知边界
 
@@ -120,4 +118,4 @@ Hooks 启用核验进一步补充了路径别名与信任状态检查，当前�
 
 新增适配代码采用 [MIT](LICENSE)。上游代码、服务、商标和官方运行时各自的权利不会由本项目许可证一并授予。参考[外部组件说明](THIRD_PARTY_NOTICES.md)与[既有许可审查](docs/LEGAL_REVIEW.md)。
 
-欢迎按[贡献说明](CONTRIBUTING.md)补充可复现用例、修正事实与来源归属。发布前运行 `npm run check:release`；当前没有配置远程仓库，也没有声称 GitHub CI 已运行。
+欢迎按[贡献说明](CONTRIBUTING.md)补充可复现用例、修正事实与来源归属。开发验收运行 `npm run verify`；源码扫描只是其中一项检查。版本发布需要主分支同一提交的成功 CI，发布后重新下载核验源码包。

@@ -40,6 +40,8 @@
 
 上述代码由维护者借助 AI 编写。研发中阅读过上游代码和文档，不能称为严格的 clean-room 实现，也不能把“本仓库编写”扩张成“这些设计首次出现”。当前源码包未包含上游项目源码文件或供应商二进制；这一发布清单说明不等于形式化代码相似性审计或不侵权保证。
 
+开发工作流另外参考 [Anthropic 的 AI-Native SDLC Playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)，把阶段产物与维护反馈的思路改编为本项目的意图/计划/审查 JSON、验证脚本和 GitHub Actions。这里新增的是小型项目的具体连接代码；生命周期方法、GitHub CI/Issue/Release 能力及 Codex Hooks 由各自来源提供，没有 Anthropic 联名或官方集成。Actions 使用的 checkout、setup-node、setup-python、github-script、upload-artifact 来自 GitHub 的 actions 组织，运行时另行获取，不打包其源码。
+
 ## 如何维护这份记录
 
 引入依赖、改写上游实现、复制片段或移植文档时，应记录项目、作者或组织、文件、版本/提交、修改范围及许可通知。直接使用、改写和仅受启发必须分别写明，致谢不能代替许可证义务。

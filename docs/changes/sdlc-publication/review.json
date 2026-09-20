@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "change": "sdlc-publication",
+  "status": "accepted",
+  "mode": "host_self_review",
+  "reviewer": "Codex authoring host, following REVIEW.md; no independent reviewer was invoked",
+  "sourceFingerprint": "76f9c1e4f1a2fa807598477dbe3bf0e8eae7a768013e055cca8b797142a9fbc0",
+  "acceptance": [
+    {"id": "A1", "result": "accepted", "checks": ["javascript", "docs"], "evidence": "check-sdlc links the active intent, concrete base commit, allowed paths and review to LF-normalized source. Full verification also hashes the review file."},
+    {"id": "A2", "result": "accepted", "checks": ["javascript"], "evidence": "sdlc tests reject absent/stale review, missing acceptance evidence, unresolved findings and paths outside the plan."},
+    {"id": "A3", "result": "accepted", "checks": ["package", "release"], "evidence": "smoke-package independently extracts the allowlisted archive, compares its file set, then runs demo, JS/Python tests and documentation checks."},
+    {"id": "A4", "result": "accepted", "checks": ["javascript", "docs"], "evidence": "release gate queries main and successful test.yml push runs for the exact commit, checks the package version, and rechecks main immediately before publication. Negative cases are unit tested; the remote execution receipt is a subsequent maintenance artifact."},
+    {"id": "A5", "result": "accepted", "checks": ["javascript", "docs"], "evidence": "maintenance upserts by workflow and SHA, writes intake in the same job and treats issue content as data. Retry and drill labeling tests pass; real remote drill and follow-up PR remain to be recorded after bootstrap."}
+  ],
+  "findings": [
+    {"disposition": "resolved", "detail": "Raw-byte review hashes could change across Git CRLF/LF checkouts. Public text fingerprints now normalize CRLF before hashing."},
+    {"disposition": "resolved", "detail": "A GITHUB_TOKEN-created issue cannot be assumed to trigger another workflow. Failure handling now produces the intake in the same job."},
+    {"disposition": "resolved", "detail": "Privileged failure handling must not check out a failing PR. Maintenance checks out the default branch with persisted Git credentials disabled."},
+    {"disposition": "accepted_limit", "detail": "Machine gates validate consistency, not honesty or independent semantic review. This review was performed by the authoring host. Actual GitHub runs and publication are checked after this commit is available remotely."},
+    {"disposition": "accepted_limit", "detail": "A failed post-upload validation leaves the prerelease available for investigation and creates feedback; automatic rollback is not implemented. Python transitive dependencies are not locked."},
+    {"disposition": "accepted_limit", "detail": "Codex Hook definitions are trusted, but automatic lifecycle execution is not evidenced. The GitHub loop works independently of those optional local Hooks."}
+  ],
+  "additionalChecks": ["actionlint 1.7.12 passed for all three workflows", "72 historical Git source blobs scanned without a matched credential or private artifact path", "No CU adapter or historical timing result changed"]
+}

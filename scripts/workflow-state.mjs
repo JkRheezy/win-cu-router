@@ -10,7 +10,8 @@ export function sourceFiles(){
   entries.forEach(walk);return files.sort();
 }
 export function fingerprint(files=sourceFiles()){
-  const hash=crypto.createHash('sha256');for(const f of files){hash.update(f);hash.update('\0');hash.update(fs.readFileSync(path.join(root,f)));hash.update('\0');}return hash.digest('hex');
+  // Public sources are text. Git checkouts on different platforms must agree.
+  const hash=crypto.createHash('sha256');for(const f of files){hash.update(f);hash.update('\0');hash.update(fs.readFileSync(path.join(root,f),'utf8').replace(/\r\n/g,'\n'));hash.update('\0');}return hash.digest('hex');
 }
 export function codeFingerprint(){return fingerprint(sourceFiles().filter(f=>!f.endsWith('.md')&&!f.startsWith('docs/')));}
 export const verificationPath=path.join(root,'.local/workflow/verification.json');
