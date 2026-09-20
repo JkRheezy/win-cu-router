@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "baseCommit": "c2a41164a69f51b35696d99f55520b078ff4719b",
+  "allowedPaths": [".github/sdlc.json", ".github/scripts/feedback.cjs", "test/sdlc.test.mjs", "docs/"],
+  "steps": [
+    "Consume the real issue intake and inspect the repeated-run result.",
+    "Preserve original failure evidence while updating a bounded latest-attempt block.",
+    "Reopen matching closed issues for fresh real failures, preserving closed diagnostic drills.",
+    "Add regression coverage, review the diff and run full verification.",
+    "Merge the passing follow-up PR to close the source issue, then publish and download-verify alpha.3."
+  ],
+  "reviewMode": "authoring_host_self_review_with_machine_gates",
+  "validation": ["javascript", "python", "docs", "release", "package", "sdlc"]
+}

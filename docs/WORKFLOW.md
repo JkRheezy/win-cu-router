@@ -65,7 +65,7 @@ Actions 固定到公开上游提交；Python 直接依赖固定版本，间接�
 
 ## 维护如何回到下一次改动
 
-`maintenance.yml` 把本仓库 CI/发布失败变成带来源 run 和 commit 的 `maintenance` Issue；同一工作流与提交重复失败会复用原 issue。一个关闭的同源 issue 也会复用，维护者应结合新 run 决定是否重开。Issue 的 opened/edited/reopened 事件产生 JSON intake artifact，供下一轮读取。首次配置仓库需创建 `maintenance` label。
+`maintenance.yml` 把本仓库 CI/发布失败变成带来源 run 和 commit 的 `maintenance` Issue；同一工作流与提交重复失败会复用原 issue，保留首次记录并更新最新运行链接。已关闭的同源问题遇到真实失败会重新打开；演练更新证据但不重新打开已关闭的问题。Issue 的 opened/edited/reopened 事件产生 JSON intake artifact，供下一轮读取。首次配置仓库需创建 `maintenance` label。
 
 失败处理器执行默认分支上的代码，不执行失败 PR 的代码，也不把外部 Issue 正文拼进 shell。它在创建 Issue 的同一工作流写出 intake，避免依赖 GITHUB_TOKEN 创建事件再次触发 Actions 的假设。[GitHub 的事件规则](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow)是这一安排的依据。
 
@@ -78,5 +78,7 @@ Actions 固定到公开上游提交；Python 直接依赖固定版本，间接�
 取消本项目 Git 钩子可运行 `git config --local --unset core.hooksPath`。项目生命周期 Hooks 可在 Codex 的 hook 管理界面停用；移除环境文件不会删除源码或用户数据。不要更改全局权限以让本项目流程通过。
 
 初始配置记录见 [docs-workflow 历史任务](changes/2026-09-21-docs-workflow.md)，首次远程发布的机器产物见 [发布意图](changes/sdlc-publication/intent.json)与[计划](changes/sdlc-publication/plan.json)。后续回流任务保留其 Issue、PR、Actions 和 Release 链接，作为实际远程执行证据。
+
+首轮真实回流发现去重后缺少后续运行链接，形成了[维护任务](changes/maintenance-roundtrip/intent.json)。该任务的[公开远程证据](evidence/github-workflow-2026-09-21.json)记录首个 PR、主分支验证与两次诊断演练；发布是否成功仍看对应版本的 release 工作流及下载复验结果。
 
 Git 提交检查已在维护者本机启用，Codex 两项 Hooks 已在用户配置的项目路径下受信任。应用内环境选择和自动 Hook 事件触发实录仍未验证；云端闭环依靠 PR、CI、发布和维护工作流，不依赖尚未留证的桌面自动事件。

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "repository": "https://github.com/JkRheezy/win-cu-router",
+  "classification": "maintainer-observed remote workflow evidence; not a CU benchmark",
+  "bootstrapMain": "9552a4f575b52b09a1eb48d3c575c4fa8cbf8842",
+  "workflowPullRequest": {"url": "https://github.com/JkRheezy/win-cu-router/pull/1", "state": "MERGED", "mergeCommit": "c2a41164a69f51b35696d99f55520b078ff4719b"},
+  "verification": [
+    {"event": "pull_request", "url": "https://github.com/JkRheezy/win-cu-router/actions/runs/35533060394", "conclusion": "success", "sourceFingerprint": "6c475e8e8bedb87e7f6ce7747cc68ffea9bc33ab2a62fbde94cecfdb1d9bdbb9", "matchesLocalSource": true},
+    {"event": "push", "url": "https://github.com/JkRheezy/win-cu-router/actions/runs/35533172207", "conclusion": "success", "headSha": "c2a41164a69f51b35696d99f55520b078ff4719b"}
+  ],
+  "maintenance": {
+    "classification": "explicit diagnostic drill, not a product incident",
+    "runs": [
+      {"url": "https://github.com/JkRheezy/win-cu-router/actions/runs/35533174267", "conclusion": "success"},
+      {"url": "https://github.com/JkRheezy/win-cu-router/actions/runs/35533225530", "conclusion": "success"}
+    ],
+    "issue": "https://github.com/JkRheezy/win-cu-router/issues/2",
+    "sameIssueReused": true,
+    "intakeArtifact": "maintenance-intake/issue-2.json",
+    "intakeDownloadedAndRead": true,
+    "finding": "The original handler retained only the first run URL. The next change adds latest-attempt evidence and reopens closed issues for real failures."
+  },
+  "mainProtection": {"requiredPullRequest": true, "requiredCheck": "offline", "checkAppId": 15368, "strict": true, "enforceAdmins": true, "independentApprovalsRequired": 0},
+  "limits": ["Review is authoring-host self-review", "Automatic Codex Hook lifecycle events have not been evidenced", "Workflow drills are not evidence of arbitrary application reliability", "Final release and downloaded archive verification are recorded by the release run, after this source artifact exists"]
+}

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "change": "maintenance-roundtrip",
+  "status": "accepted",
+  "mode": "host_self_review",
+  "reviewer": "Codex authoring host; actual diff reviewed against c2a41164a69f51b35696d99f55520b078ff4719b",
+  "sourceFingerprint": "3bb287a39d683f2ab333f62ef08b42ca8ce4e244b60dc9c32fffe96133eeabdc",
+  "acceptance": [
+    {"id": "M1", "result": "accepted", "checks": ["javascript"], "evidence": "Remote duplicate drill reused issue 2 but omitted the second run URL. The new regression checks that the original run remains, one latest-attempt block is updated, and unchanged attempts do not accumulate updates."},
+    {"id": "M2", "result": "accepted", "checks": ["javascript"], "evidence": "The regression starts with a closed matching issue, asserts reopening for a real failure, and asserts that a subsequent explicit drill preserves a closed state."},
+    {"id": "M3", "result": "accepted", "checks": ["docs", "release", "package"], "evidence": "The public evidence file contains observed GitHub run/PR/issue identifiers, source fingerprint agreement and actual branch rules, and explicitly separates diagnostic drills, host self-review and unverified automatic Hook lifecycle events."}
+  ],
+  "findings": [
+    {"disposition": "resolved", "detail": "The live duplicate drill exposed loss of later run evidence. Updates now preserve the initial report and replace only the latest-attempt block."},
+    {"disposition": "resolved", "detail": "Matching closed issues previously remained closed after a new real failure. They now reopen; diagnostic drills only update evidence."},
+    {"disposition": "accepted_limit", "detail": "The handler retains the first and latest run rather than an unlimited attempt history. GitHub Actions retains the other run records subject to repository retention."},
+    {"disposition": "accepted_limit", "detail": "This is host self-review. Unit coverage verifies the real-failure reopen path; the observed remote runs so far are explicitly labeled diagnostic drills. Final publication follows passing CI for the merged commit."}
+  ]
+}
